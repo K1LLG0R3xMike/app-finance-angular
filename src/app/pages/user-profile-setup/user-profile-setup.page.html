@@ -1,0 +1,21 @@
+<ion-page>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Complete Your Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-input placeholder="Full Name" [(ngModel)]="fullName"></ion-input>
+    <ion-input placeholder="Phone Number" type="tel" [(ngModel)]="phoneNumber"></ion-input>
+    <ion-input placeholder="Country" [(ngModel)]="country"></ion-input>
+    <ion-input placeholder="Estimated Monthly Income" type="number" [(ngModel)]="monthlyIncome"></ion-input>
+    <ion-input placeholder="Birth Date" type="date" [(ngModel)]="birthDate"></ion-input>
+    <ion-select placeholder="Gender" [(ngModel)]="gender">
+      <ion-select-option value="male">Male</ion-select-option>
+      <ion-select-option value="female">Female</ion-select-option>
+      <ion-select-option value="other">Other</ion-select-option>
+    </ion-select>
+    <ion-button expand="block" (click)="handleSaveProfile()">Save Profile</ion-button>
+  </ion-content>
+</ion-page>

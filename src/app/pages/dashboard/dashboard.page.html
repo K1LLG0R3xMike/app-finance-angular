@@ -1,0 +1,55 @@
+<ion-page>
+  <ion-content class="ion-padding">
+    <div>
+      <h5 class="dashboard-title">App name</h5>
+      <ion-buttons class="profile-avatar">
+        <ion-avatar (click)="navigateToUserConfig()" style="cursor: pointer;">
+          <img src="/assets/profile.jpg" alt="Profile" />
+        </ion-avatar>
+      </ion-buttons>
+
+      <div class="metrics">
+        <div class="metric-card">
+          <ion-text class="metric-title">Amount</ion-text>
+          <ion-text class="metric-value"> $45,678.90</ion-text>
+        </div>
+        <div class="metric-card">
+          <ion-text class="metric-title">Day Expenses</ion-text>
+          <ion-text class="metric-value"> 2,405</ion-text>
+        </div>
+      </div>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Title</ion-card-title>
+        </ion-card-header>
+        <ion-card-content style="height: 200px;">
+          <ngx-charts-line-chart
+            [view]="[400, 200]"
+            [scheme]="colorScheme"
+            [results]="data"
+            [xAxis]="true"
+            [yAxis]="true"
+            [legend]="false"
+            [showXAxisLabel]="false"
+            [showYAxisLabel]="false"
+            [autoScale]="true">
+          </ngx-charts-line-chart>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Principal Expenses</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ul class="expense-list">
+            <li>Food</li>
+            <li>Transport</li>
+            <li>Bills</li>
+          </ul>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-content>
+</ion-page>

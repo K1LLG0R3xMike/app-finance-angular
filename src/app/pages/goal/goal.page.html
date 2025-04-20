@@ -1,0 +1,60 @@
+<ion-page>
+  <ion-content class="ion-padding">
+    <div class="fixed-footer">
+      <h5 class="activity-title">Goals</h5>
+      <div
+        class="fixed-total"
+        style="margin-bottom: 10px; display: flex; flex-direction: row; justify-content: space-between; border-bottom: 1px solid #c7c6c6;"
+      >
+        <ion-text class="activity-label">Total</ion-text>
+        <ion-text class="activity-value" style="margin-top: 0px;">{{ total | currency }}</ion-text>
+      </div>
+
+      <ion-list class="activity-list">
+        <ion-item
+          *ngFor="let goal of goals"
+          [key]="goal.id"
+          lines="none"
+          class="activity-item"
+        >
+          <ion-label class="activity-label">
+            <div class="activity-text">
+              <ion-text class="activity-name">{{ goal.name }}</ion-text>
+              <ion-text class="activity-description">
+                {{ goal.description }}
+              </ion-text>
+            </div>
+          </ion-label>
+          <ion-text class="activity-value">{{ goal.price | currency }}</ion-text>
+          <ion-icon
+            name="trash"
+            color="danger"
+            slot="end"
+            style="font-size: 20px; padding: 8px; cursor: pointer;"
+            (click)="handleDelete(goal.id)"
+          ></ion-icon>
+        </ion-item>
+      </ion-list>
+      <ion-text *ngIf="goals.length === 0" class="activity-empty">
+        No hay metas registradas
+      </ion-text>
+    </div>
+
+    <!-- Floating button -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button class="activity-button" (click)="setShowModal(true)">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <!-- Modal con tu formulario para crear -->
+    <ion-modal [isOpen]="showModal" (ionModalDidDismiss)="setShowModal(false)">
+      <ng-template>
+        <app-goal-form
+          (onSubmit)="handleCreate($event)"
+          (onCancel)="setShowModal(false)"
+        ></app-goal-form>
+      </ng-template>
+    </ion-modal>
+  </ion-content>
+</ion-page>

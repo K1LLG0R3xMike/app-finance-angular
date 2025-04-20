@@ -1,0 +1,25 @@
+<ion-page>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()">
+          <ion-icon [icon]="arrowBackOutline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Configuración</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-text class="ion-margin-bottom">
+      <h2>Configuración del Usuario</h2>
+    </ion-text>
+
+    <!-- Puedes agregar aquí opciones como cambiar contraseña, correo, etc. -->
+
+    <ion-button expand="block" color="danger" (click)="handleLogout()">
+      <ion-icon [icon]="logOutOutline" slot="start"></ion-icon>
+      Cerrar Sesión
+    </ion-button>
+  </ion-content>
+</ion-page>
