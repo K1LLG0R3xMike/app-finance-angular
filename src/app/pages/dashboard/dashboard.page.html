@@ -1,10 +1,10 @@
-  <ion-content class="ion-padding">
+  <ion-content class="ion-padding"  style="--background: #f4f4f4;">
     <div>
       <h5 class="dashboard-title">App name</h5>
 
       <ion-buttons class="profile-avatar">
         <ion-avatar [routerLink]="['/user-config']" style="cursor: pointer;">
-          <img src="assets/profile.jpg" alt="Profile" />
+          <img src="../../../assets/profile.jpg" alt="Profile" />
         </ion-avatar>
       </ion-buttons>
 
@@ -19,11 +19,11 @@
         </div>
       </div>
 
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Title</ion-card-title>
+      <ion-card class="metric-card2">
+        <ion-card-header style="background: #f4f4f4; ">
+          <ion-card-title class="letter-color">Title</ion-card-title>
         </ion-card-header>
-        <ion-card-content style="height: 200px;">
+        <ion-card-content style="height: 200px; background: #f4f4f4;">
           <recharts-line-chart
             [data]="data"
             [xKey]="'day'"
@@ -33,11 +33,11 @@
         </ion-card-content>
       </ion-card>
 
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Principal Expenses</ion-card-title>
+      <ion-card class="metric-card2">
+        <ion-card-header >
+          <ion-card-title class="letter-color">Principal Expenses</ion-card-title>
         </ion-card-header>
-        <ion-card-content>
+        <ion-card-content >
           <ul class="expense-list">
             <li>Food</li>
             <li>Transport</li>

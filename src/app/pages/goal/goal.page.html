@@ -1,18 +1,20 @@
   <ion-content class="ion-padding">
-    <div class="fixed-footer">
+    <div class="fixed-total">
       <h5 class="activity-title">Goals</h5>
       <div
-        class="fixed-total"
+        class="fixed-footer"
         style="margin-bottom: 10px; display: flex; flex-direction: row; justify-content: space-between; border-bottom: 1px solid #c7c6c6;"
       >
         <ion-text class="activity-label">Total</ion-text>
         <ion-text class="activity-value" style="margin-top: 0px;">{{ total | currency }}</ion-text>
       </div>
+      <ion-text *ngIf="goals.length === 0" style="color: black">
+        No hay metas registradas
+      </ion-text>
 
       <ion-list class="activity-list">
         <ion-item
           *ngFor="let goal of goals"
-         
           lines="none"
           class="activity-item"
         >
@@ -34,9 +36,7 @@
           ></ion-icon>
         </ion-item>
       </ion-list>
-      <ion-text *ngIf="goals.length === 0" class="activity-empty">
-        No hay metas registradas
-      </ion-text>
+      
     </div>
 
     <!-- Floating button -->
@@ -47,9 +47,5 @@
     </ion-fab>
 
     <!-- Modal con tu formulario para crear -->
-    <ion-modal [isOpen]="showModal" >
-      <ng-template>
-       
-      </ng-template>
-    </ion-modal>
+  
   </ion-content>

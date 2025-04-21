@@ -9,6 +9,7 @@ import { getAuth } from 'firebase/auth';
   styleUrls: ['./dashboard.page.scss'],
   standalone: false,
 })
+
 export class DashboardPage {
   data = [
     { day: '23', value: 30000 },

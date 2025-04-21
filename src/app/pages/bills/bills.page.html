@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button [routerLink]="['/expenses']">
+          Volver
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Register Expense</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="register-in-container">
+    <h2 class="title">Register Expense</h2>
+    <p class="subtitle">Add your expense</p>
+  
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Amount</ion-label>
+        <ion-input
+          type="number"
+          [(ngModel)]="amount"
+        ></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">Description</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="description"
+        ></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Type</ion-label>
+        <ion-select [(ngModel)]="category">
+          <ion-select-option value="gastos">Occasional</ion-select-option>
+          <ion-select-option value="gastos_fijos">Monthly</ion-select-option>
+        </ion-select>
+      </ion-item>
+  
+      <ion-item *ngIf="category === 'gastos_fijos'">
+        <ion-label position="stacked">Recurrence</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="recurrence"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+  
+    <ion-button expand="full" class="continue-button-2">
+      Guardar
+    </ion-button>
+  </ion-content>
+  

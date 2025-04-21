@@ -1,7 +1,7 @@
 .dashboard-title {
     font-size: 26px;
     font-weight: 600; 
-    color: #000000; 
+    color: #000000b0; 
     margin-bottom: 20px; 
     letter-spacing: 0.5px; 
     text-transform: capitalize;
@@ -26,27 +26,52 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 16px;
+    border-radius: 12px;
+
   }
   
+  .letter-color {
+    color: #00000091;
+  }
+
+
   .metric-card {
+    margin-bottom: 10px; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    border-bottom: 1px solid #c7c6c6;
+    
     background: #f8f8f8;
     padding: 12px;
     border-radius: 12px;
     flex: 0 0 48%;
     text-align: center;
   }
+
+  .metric-card2 {
+    margin-bottom: 10px; 
+    justify-content: space-between; 
+    background: #f8f8f800;
+    padding: 12px;
+    border-radius: 12px;
+    flex: 0 0 48%;
+  }
   
   .metric-title {
     font-size: 14px;
-    color: gray;
+    color: #00000091;
   }
   
   .metric-value {
+    color: #000000c3;
+
     font-size: 20px;
     font-weight: bold;
   }
   
   .expense-list {
+
     list-style: none;
     padding-left: 0;
     margin: 0;

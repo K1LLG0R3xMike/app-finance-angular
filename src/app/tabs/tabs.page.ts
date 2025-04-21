@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { statsChartOutline, trophyOutline, listOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class TabsPage {
+
+  statsChartOutline = statsChartOutline;
+  trophyOutline = trophyOutline;
+  listOutline = listOutline;
 
   constructor() {}
 
