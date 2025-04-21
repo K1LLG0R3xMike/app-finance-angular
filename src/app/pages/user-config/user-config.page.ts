@@ -7,6 +7,8 @@ import { auth, db } from '../../../environments/firebaseConfig';
   selector: 'app-user-config',
   templateUrl: './user-config.page.html',
   styleUrls: ['./user-config.page.scss'],
+  standalone: false,
+
 })
 export class UserConfigPage {
   constructor(private router: Router) {}

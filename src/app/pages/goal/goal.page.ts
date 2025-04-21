@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { Goal as GoalType, GoalInput } from '../../types/goal';
-import { GoalService, getGoalsByUser } from '../../services/goal.service';
+import {GoalService } from '../../services/goal.service';
 
 @Component({
   selector: 'app-goal',
   templateUrl: './goal.page.html',
+  styleUrls: ['./goal.page.scss'],
+  standalone: false,
+
 })
 export class GoalPage {
   auth = getAuth();
@@ -14,7 +17,8 @@ export class GoalPage {
   goals: GoalType[] = [];
   showModal = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router
+    , private goalService: GoalService) {}
 
   ngOnInit() {
     onAuthStateChanged(this.auth, user => {
@@ -28,8 +32,14 @@ export class GoalPage {
   async fetchGoals() {
     if (!this.userId) return;
     try {
-      const data = await getGoalsByUser(this.userId);
-      this.goals = data;
+      this.goalService.getGoalsByUser(this.userId).subscribe({
+        next: (data) => {
+          this.goals = data;
+        },
+        error: (err) => {
+          console.error('Error cargando metas:', err);
+        },
+      });
     } catch (err) {
       console.error('Error cargando metas:', err);
     }
@@ -38,7 +48,7 @@ export class GoalPage {
   async handleCreate(newGoal: Omit<GoalInput, 'uid'>) {
     if (!this.userId) return;
     try {
-      await createGoal({ ...newGoal, uid: this.userId });
+      this.goalService.createGoal({ ...newGoal, uid: this.userId });
       this.showModal = false;
       this.fetchGoals();
     } catch (err) {
@@ -48,7 +58,7 @@ export class GoalPage {
 
   async handleDelete(id: string) {
     try {
-      await deleteGoal(id);
+      this.goalService.deleteGoal(id);
       this.fetchGoals();
     } catch (err) {
       console.error('Error eliminando meta:', err);

@@ -1,4 +1,3 @@
-<ion-page>
   <ion-content class="ion-padding">
     <div class="fixed-footer">
       <h5 class="activity-title">Goals</h5>
@@ -13,7 +12,7 @@
       <ion-list class="activity-list">
         <ion-item
           *ngFor="let goal of goals"
-          [key]="goal.id"
+         
           lines="none"
           class="activity-item"
         >
@@ -31,7 +30,7 @@
             color="danger"
             slot="end"
             style="font-size: 20px; padding: 8px; cursor: pointer;"
-            (click)="handleDelete(goal.id)"
+            
           ></ion-icon>
         </ion-item>
       </ion-list>
@@ -42,19 +41,15 @@
 
     <!-- Floating button -->
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button class="activity-button" (click)="setShowModal(true)">
+      <ion-fab-button class="activity-button" >
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
     </ion-fab>
 
     <!-- Modal con tu formulario para crear -->
-    <ion-modal [isOpen]="showModal" (ionModalDidDismiss)="setShowModal(false)">
+    <ion-modal [isOpen]="showModal" >
       <ng-template>
-        <app-goal-form
-          (onSubmit)="handleCreate($event)"
-          (onCancel)="setShowModal(false)"
-        ></app-goal-form>
+       
       </ng-template>
     </ion-modal>
   </ion-content>
-</ion-page>

@@ -7,6 +7,7 @@ import { doc, setDoc } from 'firebase/firestore';
   selector: 'app-user-profile-setup',
   templateUrl: './user-profile-setup.page.html',
   styleUrls: ['./user-profile-setup.page.scss'],
+  standalone: false,
 })
 export class UserProfileSetupPage {
   fullName = '';

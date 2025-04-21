@@ -1,10 +1,10 @@
-<ion-page>
   <ion-content class="ion-padding">
     <div>
       <h5 class="dashboard-title">App name</h5>
+
       <ion-buttons class="profile-avatar">
-        <ion-avatar (click)="navigateToUserConfig()" style="cursor: pointer;">
-          <img src="/assets/profile.jpg" alt="Profile" />
+        <ion-avatar [routerLink]="['/user-config']" style="cursor: pointer;">
+          <img src="assets/profile.jpg" alt="Profile" />
         </ion-avatar>
       </ion-buttons>
 
@@ -24,17 +24,12 @@
           <ion-card-title>Title</ion-card-title>
         </ion-card-header>
         <ion-card-content style="height: 200px;">
-          <ngx-charts-line-chart
-            [view]="[400, 200]"
-            [scheme]="colorScheme"
-            [results]="data"
-            [xAxis]="true"
-            [yAxis]="true"
-            [legend]="false"
-            [showXAxisLabel]="false"
-            [showYAxisLabel]="false"
-            [autoScale]="true">
-          </ngx-charts-line-chart>
+          <recharts-line-chart
+            [data]="data"
+            [xKey]="'day'"
+            [yKey]="'value'"
+            strokeColor="#007aff"
+          ></recharts-line-chart>
         </ion-card-content>
       </ion-card>
 
@@ -52,4 +47,3 @@
       </ion-card>
     </div>
   </ion-content>
-</ion-page>

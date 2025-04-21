@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { getAuth } from 'firebase/auth';
-import { createExpense } from '../../services/expense.service';
-import { createFixedExpense } from '../../services/fixed-expenses.service';
+import {  ExpenseService } from '../../services/expense.service';
+import { FixedExpenseService  } from '../../services/fixed-expenses.service';
 import { ExpenseInput } from '../../types/expense';
 
 @Component({
   selector: 'app-bills',
   templateUrl: './bills.page.html',
+  styleUrls: ['./bills.page.scss'],
+  standalone: false,
 })
 export class BillsPage {
   amount: string = '';
@@ -16,7 +18,7 @@ export class BillsPage {
   recurrence: string = '';
   auth = getAuth();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private expenseService: ExpenseService , private fixedExpenseService: FixedExpenseService) {}
 
   async handleSave() {
     const user = this.auth.currentUser;
@@ -38,9 +40,9 @@ export class BillsPage {
 
     try {
       if (this.category === 'gastos_fijos') {
-        await createFixedExpense(payload);
+        await this.fixedExpenseService.createFixedExpense(payload);
       } else {
-        await createExpense(payload);
+        await this.expenseService.createExpense(payload);
       }
       alert('Gasto guardado exitosamente');
       this.amount = '';

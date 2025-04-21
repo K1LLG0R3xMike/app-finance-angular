@@ -1,9 +1,8 @@
-<ion-page>
   <ion-content class="ion-padding">
     <div class="fixed-footer">
       <h5 class="activity-title">Bills</h5>
 
-      <ion-segment [(ngModel)]="category" style="margin-bottom: 10px;">
+      <ion-segment [value]="category" class="activity-segment">
         <ion-segment-button value="gastos">
           <ion-label style="font-size: 15px;">Occasional Bills</ion-label>
         </ion-segment-button>
@@ -13,7 +12,7 @@
       </ion-segment>
 
       <ion-list class="activity-list">
-        <ng-container *ngIf="displayed.length > 0; else noItems">
+        <ng-container *ngIf="displayed.length > 0; else noData">
           <ion-item
             *ngFor="let item of displayed"
             lines="none"
@@ -25,12 +24,9 @@
                   {{ item.description }}
                 </ion-text>
                 <ion-text class="activity-description">
-                  {{ item.timestamp | date: 'short' }}
+                  formatDate(item.timestamp, 'dd/MM/yyyy') 
                 </ion-text>
-                <ion-text
-                  *ngIf="category === 'gastos_fijos'"
-                  class="activity-description"
-                >
+                <ion-text *ngIf="category === 'gastos_fijos'" class="activity-description">
                   Recurrence: {{ item.recurrence }}
                 </ion-text>
               </div>
@@ -40,11 +36,11 @@
             </ion-text>
           </ion-item>
         </ng-container>
-        <ng-template #noItems>
+
+        <ng-template #noData>
           <ion-item lines="none" class="activity-item">
             <ion-label>
-              No hay {{ category === 'gastos' ? 'gastos' : 'gastos fijos' }}
-              registrados.
+              No hay {{ category === 'gastos' ? 'gastos' : 'gastos fijos' }} registrados.
             </ion-label>
           </ion-item>
         </ng-template>
@@ -52,12 +48,8 @@
     </div>
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button
-        class="activity-button"
-        (click)="navigateToBills()"
-      >
-        <ion-icon [icon]="add"></ion-icon>
+      <ion-fab-button class="activity-button" routerLink="/add-expense">
+        <ion-icon name="add"></ion-icon>
       </ion-fab-button>
     </ion-fab>
   </ion-content>
-</ion-page>

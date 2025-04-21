@@ -8,6 +8,8 @@ import { GoalInput } from '../../types/goal';
   selector: 'app-goal-form',
   templateUrl: './goal-form.page.html',
   styleUrls: ['./goal-form.page.scss'],
+  standalone: false,
+
 })
 export class GoalFormPage {
   @Input() onSubmit?: (goalData: Omit<GoalInput, 'uid'>) => Promise<void>;

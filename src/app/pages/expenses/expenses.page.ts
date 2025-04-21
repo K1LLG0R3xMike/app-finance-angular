@@ -2,14 +2,16 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { Expense } from '../../types/expense';
-import { getExpensesByUser } from '../../services/expense.service';
-import { getFixedExpensesByUser } from '../../../services/fixed-expenses.service';
+import { ExpenseService } from '../../services/expense.service';
+import { FixedExpenseService } from '../../services/fixed-expenses.service';
 import { ExpenseInput } from '../../types/expense';
-import { createExpense } from '../../services/expense.service';
+
 
 @Component({
   selector: 'app-expenses',
   templateUrl: './expenses.page.html',
+  styleUrls: ['./expenses.page.scss'],
+  standalone: false,
 })
 export class ExpensesPage {
   auth = getAuth();
@@ -17,7 +19,10 @@ export class ExpensesPage {
   expenses: Expense[] = [];
   category: 'gastos' | 'gastos_fijos' = 'gastos';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router , 
+              private expenseService: ExpenseService,
+              private fixedExpenseService: FixedExpenseService
+    ) {}
 
   ngOnInit() {
     onAuthStateChanged(this.auth, user => {
@@ -32,10 +37,10 @@ export class ExpensesPage {
     if (!this.userId) return;
     try {
       const [ocasionales, fijos] = await Promise.all([
-        getExpensesByUser(this.userId),
-        getFixedExpensesByUser(this.userId),
+        this.expenseService.getExpensesByUser(this.userId).toPromise(),
+        this.fixedExpenseService.getFixedExpensesByUser(this.userId).toPromise(),
       ]);
-      this.expenses = [...ocasionales, ...fijos];
+      this.expenses = [...(ocasionales || []), ...(fijos || [])];
     } catch (err) {
       console.error('Error cargando gastos:', err);
     }

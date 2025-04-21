@@ -8,6 +8,8 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
   selector: 'app-signin',
   templateUrl: './signin.page.html',
   styleUrls: ['./signin.page.scss'],
+  standalone: false,
+
 })
 export class SignInPage {
   email = '';
