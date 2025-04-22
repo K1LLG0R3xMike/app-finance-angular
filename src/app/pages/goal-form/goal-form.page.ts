@@ -56,7 +56,7 @@ export class GoalFormPage {
       this.name = this.description = this.price = '';
 
       if (this.onCancel) this.onCancel();
-      else this.router.navigate(['/goal']);
+      else this.router.navigate(['/tabs/tab2']);
     } catch (error) {
       console.error('Error al guardar la meta: ', error);
     }

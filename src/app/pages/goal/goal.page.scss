@@ -12,28 +12,17 @@
     border-bottom: 1px solid #c7c6c6;
   }
   
-    .activity-item {
-      margin-bottom:  20px;
-      display: flex;
-      align-items: flex-start;
-      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.152);
-      padding: 5px;
-      border-radius: 10px;
-    }
-  
-    /* Estilo para boton de imagenes */
-    .custom-file-upload {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: black; /* Color azul de Ionic */
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-      text-align: center;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-  
+  .activity-item {
+    display: flex;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    box-shadow: 0px 8px 10px rgba(2, 2, 2, 0.168);
+    border-radius: 10px;
+    --background: rgba(255, 255, 255, 0.667);
+  }
+
+ 
   
    
     /* Estilo para el botón de actividad */
@@ -49,7 +38,7 @@
     
   
     .activity-label {
-      color: #717171;
+      color: #242424;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -69,8 +58,9 @@
     }
     
     .activity-name {
+      color: black;
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 600;
     }
     
     .activity-description {
@@ -88,7 +78,7 @@
       font-weight: 600;
       font-size: 18px;
       margin-top: 18px;
-      color: #717171;
+      color: #1b1b1b;
     }
     
     .form-section {
@@ -130,11 +120,14 @@
   
   
   
-  /* Estilos para la lista de productos con scroll */
   .activity-list {
     margin-bottom:100%;
-    max-height: 90vh; /* Define la altura máxima de la lista */
-    overflow-y: auto; /* Permite el scroll vertical */
+    max-height: 90vh; 
+    overflow-y: auto;
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+    background: #ffffff; /* Permite el scroll vertical */
   }
   
   .fixed-total {
