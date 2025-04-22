@@ -1,49 +1,66 @@
-  <ion-content class="ion-padding"  style="--background: #f4f4f4;">
-    <div>
-      <h5 class="dashboard-title">App name</h5>
+<ion-header>
+  <ion-toolbar style="--background: #ffffff; --color: #000000; box-shadow: none;">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; font-weight: bold;">App name</ion-title>
+    <ion-buttons slot="end">
+      <ion-avatar routerLink="/user-config" style="cursor: pointer;">
+        <img src="../../../assets/profile.jpg" alt="Profile" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
-      <ion-buttons class="profile-avatar">
-        <ion-avatar routerLink="/user-config" style="cursor: pointer;">
-          <img src="../../../assets/profile.jpg" alt="Profile" />
-        </ion-avatar>
-      </ion-buttons>
+<ion-content class="ion-padding" style="--background: white;">
+  <!-- Botón tipo Tab -->
+  <div style="margin-bottom: 20px; display: flex; justify-content: start;">
+    <ion-button shape="round" color="dark" size="small">Tab</ion-button>
+  </div>
 
-      <div class="metrics">
-        <div class="metric-card">
-          <ion-text class="metric-title">Amount</ion-text>
-          <ion-text class="metric-value"> $45,678.90</ion-text>
-        </div>
-        <div class="metric-card">
-          <ion-text class="metric-title">Day Expenses</ion-text>
-          <ion-text class="metric-value"> 2,405</ion-text>
-        </div>
-      </div>
+  <!-- Cards de Amount y Day Expenses -->
+  <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+    <ion-card style="flex: 1; text-align: center; border: 1px solid #e0e0e0; border-radius: 12px; background: white;">
+      <ion-card-content>
+        <h5 style="color: #555; font-weight: 500;">Amount</h5>
+        <h1 style="font-size: 28px; font-weight: bold;">$45,678</h1>
+      </ion-card-content>
+    </ion-card>
 
-      <ion-card class="metric-card2">
-        <ion-card-header style="background: #f4f4f4; ">
-          <ion-card-title class="letter-color">Title</ion-card-title>
-        </ion-card-header>
-        <ion-card-content style="height: 200px; background: #f4f4f4;">
-          <recharts-line-chart
-            [data]="data"
-            [xKey]="'day'"
-            [yKey]="'value'"
-            strokeColor="#007aff"
-          ></recharts-line-chart>
-        </ion-card-content>
-      </ion-card>
+    <ion-card style="flex: 1; text-align: center; border: 1px solid #e0e0e0; border-radius: 12px; background: white;">
+      <ion-card-content>
+        <h5 style="color: #555; font-weight: 500;">Day Expenses</h5>
+        <h1 style="font-size: 28px; font-weight: bold;">2,405</h1>
+      </ion-card-content>
+    </ion-card>
+  </div>
 
-      <ion-card class="metric-card2">
-        <ion-card-header >
-          <ion-card-title class="letter-color">Principal Expenses</ion-card-title>
-        </ion-card-header>
-        <ion-card-content >
-          <ul class="expense-list">
-            <li>Food</li>
-            <li>Transport</li>
-            <li>Bills</li>
-          </ul>
-        </ion-card-content>
-      </ion-card>
-    </div>
-  </ion-content>
+  <!-- Gráfica -->
+  <ion-card style="border: 1px solid #e0e0e0; border-radius: 12px; background: white;">
+    <ion-card-header>
+      <ion-card-title style="font-weight: bold;">Title</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas baseChart
+        [type]="barChartType"
+        [data]="barChartData"
+        [options]="barChartOptions">
+      </canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Principal Expenses -->
+  <ion-card style="margin-top: 20px; border: 1px solid #e0e0e0; border-radius: 12px; background: white;">
+    <ion-card-header>
+      <ion-card-title style="font-weight: bold; color: #000000;">Principal Expenses</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list style="background-color: white;">
+        <ion-item lines="none " style="--background: white;">
+          <ion-label style="color: #000000;">Food</ion-label>
+        </ion-item>
+        <!-- Puedes agregar más items aquí -->
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

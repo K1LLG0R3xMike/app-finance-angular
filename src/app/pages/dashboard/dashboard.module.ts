@@ -8,6 +8,9 @@ import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
 import { DashboardPage } from './dashboard.page';
 import { RouterModule } from '@angular/router';
+import { BaseChartDirective } from 'ng2-charts';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+
 
 @NgModule({
   imports: [
@@ -15,7 +18,12 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     IonicModule,
     DashboardPageRoutingModule,
-    RouterModule.forChild([{  path: '', component: DashboardPage }])
+    RouterModule.forChild([{  path: '', component: DashboardPage }]),
+    BaseChartDirective
+
+  ],
+  providers: [
+    provideCharts(withDefaultRegisterables())
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [DashboardPage]

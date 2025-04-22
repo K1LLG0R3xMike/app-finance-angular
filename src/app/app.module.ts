@@ -15,7 +15,7 @@ import { AppInitializerService } from './services/app-initializer.service';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    provideAppInitializer(() => AppInitializerService.initializeApp)
+    provideAppInitializer(() => AppInitializerService.initializeApp),
   ],
   bootstrap: [AppComponent],
 })
