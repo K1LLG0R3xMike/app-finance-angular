@@ -1,0 +1,37 @@
+    <ion-content class="ion-padding sign-in-container" style="--background: #f4f4f4; ">
+        <h1 class="title1">Finance App</h1>
+        <h1 class="title">Sign In</h1>
+    
+        <ion-input
+        class="input-field"
+        type="email"
+        [(ngModel)]="email"
+        placeholder="email@domain.com"
+        ></ion-input>
+    
+        <ion-input
+        class="input-field"
+        type="password"
+        [(ngModel)]="password"
+        placeholder="Enter password"
+        ></ion-input>
+    
+        <ion-button expand="block" class="continue-button" (click)="handleLogin()">
+        Sign In
+        </ion-button>
+    
+        <ion-button expand="block" fill="outline" class="provider-button google" (click)="handleGoogleLogin()">
+        <ion-icon name="logo-google" slot="start"></ion-icon>
+        Continue with Google
+        </ion-button>
+    
+        <ion-button expand="block" fill="clear" class="register-button" routerLink="/register">
+        Don't have an account? Register
+        </ion-button>
+    
+        <ion-text class="terms">
+        <small>
+            By clicking continue, you agree to our <strong>Terms of Service</strong> and <strong>Privacy Policy</strong>
+        </small>
+        </ion-text>
+    </ion-content>

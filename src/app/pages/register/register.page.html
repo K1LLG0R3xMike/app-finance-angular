@@ -1,0 +1,63 @@
+<ion-content class="ion-padding register-in-container" style="--background: #f4f4f4; ">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <ion-button routerLink="/signin" style="color: black;  ">
+                Volver
+        </ion-button>
+
+        <h1 class="title">Register</h1>
+    </div>
+    <p class="subtitle">Create a new account</p>
+
+    <ion-input
+        class="input-field"
+        type="email"
+        [(ngModel)]="email"
+        placeholder="email@domain.com"
+        style="color: black ;"
+    ></ion-input>
+
+    <div class="password-container">
+        <ion-input
+            class="input-field password-input"
+            [type]="showPassword ? 'text' : 'password'"
+            [(ngModel)]="password"
+            placeholder="Enter password"
+            style="color: black ;"
+
+        ></ion-input>
+        <button
+            class="toggle-password"
+            
+        >
+            <ion-icon [icon]="showPassword ? 'eye-off' : 'eye'"></ion-icon>
+        </button>
+    </div>
+
+    <div class="password-container">
+        <ion-input
+            class="input-field password-input"
+            [type]="showConfirmPassword ? 'text' : 'password'"
+            [(ngModel)]="confirmPassword"
+            placeholder="Confirm password"
+            style="color: black ;"
+
+        ></ion-input>
+        <button
+            class="toggle-password"
+            
+        >
+            <ion-icon [name]="showConfirmPassword ? 'eye-off' : 'eye'"></ion-icon>
+        </button>
+    </div>
+
+    <ion-button expand="block" class="continue-button-2" >
+        Register
+    </ion-button>
+
+    <ion-text class="terms">
+        <small>
+            By clicking register, you agree to our <strong>Terms of Service</strong> and <strong>Privacy Policy</strong>
+        </small>
+    </ion-text>
+</ion-content>

@@ -13,12 +13,12 @@
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #333;
+    color: #020202;
   }
   
   .subtitle {
     font-size: 1rem;
-    color: #666;
+    color: #050505;
     margin-bottom: 10px; /* Menos espacio entre el subtítulo y los campos */
   }
   
@@ -67,8 +67,8 @@
     font-size: 1rem;
     border-radius: 8px;
     --background: black !important;
-  --color: white !important;
-  --ripple-color: white !important;
+    --color: white !important;
+    --ripple-color: white !important;
     color: white;
     margin-bottom: 20px;
   }
