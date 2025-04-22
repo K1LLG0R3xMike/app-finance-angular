@@ -1,20 +1,11 @@
-<ion-header>
-  <ion-toolbar style="--background: #ffffff; --color: #000000; box-shadow: none;">
-    <ion-buttons slot="start">
-      <ion-menu-button color="dark"></ion-menu-button>
-    </ion-buttons>
-    <ion-title style="text-align: center; font-weight: bold;">App name</ion-title>
-    <ion-buttons slot="end">
-      <ion-avatar routerLink="/user-config" style="cursor: pointer;">
-        <img src="../../../assets/profile.jpg" alt="Profile" />
-      </ion-avatar>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content class="ion-padding" style="--background: white;">
+  <ion-avatar class="profile-avatar" routerLink="/user-config" style="cursor: pointer; margin-top: 5px;">
+    <img src="../../../assets/profile.jpg" alt="Profile" />
+  </ion-avatar>
+  <h5 class="dashboard-title" style="margin-bottom: 5px;">App name</h5>
+  
   <!-- Botón tipo Tab -->
-  <div style="margin-bottom: 20px; display: flex; justify-content: start;">
+  <div style=" display: flex; justify-content: start;">
     <ion-button shape="round" color="dark" size="small">Tab</ion-button>
   </div>
 
@@ -30,7 +21,7 @@
     <ion-card style="flex: 1; text-align: center; border: 1px solid #e0e0e0; border-radius: 12px; background: white;">
       <ion-card-content>
         <h5 style="color: #555; font-weight: 500;">Day Expenses</h5>
-        <h1 style="font-size: 28px; font-weight: bold;">2,405</h1>
+        <h1 style="font-size: 28px; font-weight: bold;">$2,405</h1>
       </ion-card-content>
     </ion-card>
   </div>
@@ -38,7 +29,7 @@
   <!-- Gráfica -->
   <ion-card style="border: 1px solid #e0e0e0; border-radius: 12px; background: white;">
     <ion-card-header>
-      <ion-card-title style="font-weight: bold;">Title</ion-card-title>
+      <ion-card-title style="font-weight: bold; color: #000000;">Summary</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <canvas baseChart
