@@ -41,12 +41,15 @@ export class ExpensesPage {
         this.fixedExpenseService.getFixedExpensesByUser(this.userId).toPromise(),
       ]);
       this.expenses = [...(ocasionales || []), ...(fijos || [])];
+      console.log('Gastos cargados:', this.expenses);
+      console.log('Gastos fijos cargados:', fijos);
     } catch (err) {
       console.error('Error cargando gastos:', err);
     }
   }
 
   get displayed() {
+    
     return this.expenses.filter(e =>
       this.category === 'gastos' ? !e.recurrence : !!e.recurrence
     );
@@ -55,4 +58,9 @@ export class ExpensesPage {
   get total() {
     return this.displayed.reduce((sum, e) => sum + e.amount, 0);
   }
+
+  onSegmentChange(event: any) {
+    this.category = event.detail.value;
+  }
+  
 }

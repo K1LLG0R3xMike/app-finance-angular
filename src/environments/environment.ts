@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
   production: false,
-  BASE_URL: 'http://localhost:3001' , // tu API local
+  BASE_URL: 'http://localhost:3001/api' , // tu API local
   firebaseConfig: {
     apiKey: "AIzaSyBfjDAT_12D8yd1PFp91KGahQ5gVYVcjTc",
     authDomain: "emprendimiento-ed100.firebaseapp.com",

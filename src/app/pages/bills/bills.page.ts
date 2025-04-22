@@ -40,15 +40,16 @@ export class BillsPage {
 
     try {
       if (this.category === 'gastos_fijos') {
-        await this.fixedExpenseService.createFixedExpense(payload);
+        await this.fixedExpenseService.createFixedExpense(payload).toPromise();
       } else {
-        await this.expenseService.createExpense(payload);
+        await this.expenseService.createExpense(payload).toPromise();
       }
       alert('Gasto guardado exitosamente');
+      console.log('Gasto guardado:', payload);
       this.amount = '';
       this.description = '';
       this.recurrence = '';
-      this.router.navigateByUrl('/expenses');
+      this.router.navigateByUrl('/tabs/tab3');
     } catch (err) {
       console.error('Error al guardar gasto:', err);
       alert('No se pudo guardar el gasto');

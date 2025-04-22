@@ -1,8 +1,10 @@
-  <ion-content class="ion-padding" >
+  <ion-content>
     <div class="fixed-total">
       <h5 class="activity-title">Bills</h5>
 
-      <ion-segment [value]="category" class="activity-segment">
+      <ion-segment [value]="category" (ionChange)="onSegmentChange($event)" class="activity-segment">
+
+
         <ion-segment-button value="gastos">
           <ion-label style="font-size: 18px;">Occasional Bills</ion-label>
         </ion-segment-button>
@@ -15,19 +17,15 @@
         No hay {{ category === 'gastos' ? 'gastos' : 'gastos fijos' }} registrados.
       </ion-text>
 
-      <ion-list class="activity-list">
-        <ion-item
-          *ngFor="let item of displayed"
-          lines="none"
-          class="activity-item"
-        >
+      <ion-list class="activity-list" >
+        <ion-item *ngFor="let item of displayed" lines="none" class="activity-item" detail="false"  >
           <ion-label class="activity-label">
             <div class="activity-text">
               <ion-text class="activity-name">
                 {{ item.description }}
               </ion-text>
               <ion-text class="activity-description">
-                {{ item.timestamp | date: 'dd/MM/yyyy' }}
+                {{ item.timestamp  }}
               </ion-text>
               <ion-text *ngIf="category === 'gastos_fijos'" class="activity-description">
                 Recurrence: {{ item.recurrence }}
