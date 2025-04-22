@@ -1,54 +1,67 @@
-.bills-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    padding: 20px;
-    background-color: #f7f9fc; /* Color de fondo suave */
-}
-
-.bills-container h2 {
-    font-size: 2rem;
+:host {
+    display: block;
+    --background: #ffffff;
+    --color: #000000;
+  }
+  
+  ion-content.register-in-container {
+    color: #000000;
+    padding: 30px;
+  }
+  
+  .back-button {
+    color: #007bff;
     font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-}
+    margin: 10px 0 20px 10px;
+  }
+  
+  .title {
+    padding-top: 50px;
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #000000;
+    text-align: center;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  ion-list {
+    margin-bottom: 30px;
+    background: transparent;
+  }
+  
+  ion-item {
+    --background: transparent;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    padding: 8px 10px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08);
+  }
+  
+ .label {
+    color: #000000;
+    font-weight: 500;
+  }
+  
+  ion-input {
+    color: #000000;
+  }
 
-.bills-container input,
-.bills-container select {
-    width: 100%;
-    max-width: 400px;
-    padding: 12px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: white;
-    margin-bottom: 15px;
-}
-
-.bills-container select {
-    cursor: pointer;
-}
-
-.bills-container button {
-    width: 100%;
-    max-width: 400px;
-    padding: 12px;
-    font-size: 1rem;
-    border-radius: 8px;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.bills-container button:hover {
-    background-color: #333;
-}
-
-.bills-container input[type="date"] {
-    color: #333;
-    text-transform: uppercase;
-}
+  ion-select {
+    color: #000000;
+  }
+  
+  .continue-button-2 {
+    --background: #060606d6;
+    --color: #ffffff;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(30, 144, 255, 0.3);
+  }
+  

@@ -1,35 +1,35 @@
-<ion-header>
-    <ion-toolbar>
+<ion-header  style="background: #f4f4f4; color:black; padding-top: 20px;" >
+    <ion-toolbar color="black">
         <ion-buttons slot="start">
-            <ion-button routerLink="/tabs/tab2" class="back-button">
-                Volver
+            <ion-button routerLink="/tabs/tab2" fill="clear" style="width: 50px; height: 40px;">
+                <ion-icon name="arrow-back" style="size: 40px;"></ion-icon>
             </ion-button>
         </ion-buttons>
-        <ion-title>Registrar Meta</ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content class="register-in-container">
+
+<ion-content class="register-in-container" style="--background: #f4f4f4; padding: 40px;">
     <h2 class="title">Registrar Meta</h2>
     <p class="subtitle">Añade una nueva meta</p>
 
     <ion-list>
         <ion-item>
-            <ion-label position="stacked">Nombre</ion-label>
+            <ion-label position="stacked" class="label">Nombre</ion-label>
             <ion-input
                 type="text"
                 [(ngModel)]="name">
             </ion-input>
         </ion-item>
         <ion-item>
-            <ion-label position="stacked">Descripción</ion-label>
+            <ion-label position="stacked" class="label">Descripción</ion-label>
             <ion-input
                 type="text"
                 [(ngModel)]="description">
             </ion-input>
         </ion-item>
         <ion-item>
-            <ion-label position="stacked">Precio</ion-label>
+            <ion-label position="stacked" class="label">Precio</ion-label>
             <ion-input
                 type="number"
                 [(ngModel)]="price">
@@ -37,10 +37,13 @@
         </ion-item>
     </ion-list>
 
-    <ion-button
-        expand="full"
-       
-        class="continue-button-2">
-        Guardar
+    <ion-button expand="block" color="light" style="--background: #060606d6;
+    --color: #ffffff;
+    font-weight: bold;
+    border-radius: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: 0px 10px 8px rgba(9, 9, 9, 0.493);" >
+    Guardar
     </ion-button>
 </ion-content>

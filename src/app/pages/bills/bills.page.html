@@ -1,21 +1,22 @@
-<ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-button [routerLink]="['/tabs/tab3']" class="back-button">
-          Volver
-        </ion-button>
-      </ion-buttons>
-      <ion-title>Register Expense</ion-title>
+<ion-header  style="background: #f4f4f4; color:black; padding-top: 20px;" >
+    <ion-toolbar color="black">
+        <ion-buttons slot="start">
+            <ion-button routerLink="/tabs/tab3" fill="clear" style="width: 50px; height: 40px;">
+                <ion-icon name="arrow-back" style="size: 40px;"></ion-icon>
+            </ion-button>
+        </ion-buttons>
     </ion-toolbar>
-  </ion-header>
-  
-  <ion-content class="register-in-container">
+</ion-header>
+
+
+<ion-content  class="register-in-container" style="--background: #f4f4f4; padding: 40px;">
+   
     <h2 class="title">Register Expense</h2>
     <p class="subtitle">Add your expense</p>
   
     <ion-list>
       <ion-item>
-        <ion-label position="stacked">Amount</ion-label>
+        <ion-label position="stacked" class="label">Amount</ion-label>
         <ion-input
           type="number"
           [(ngModel)]="amount"
@@ -23,7 +24,7 @@
       </ion-item>
   
       <ion-item>
-        <ion-label position="stacked">Description</ion-label>
+        <ion-label position="stacked" class="label" >Description</ion-label>
         <ion-input
           type="text"
           [(ngModel)]="description"
@@ -31,7 +32,7 @@
       </ion-item>
   
       <ion-item>
-        <ion-label>Type</ion-label>
+        <ion-label class="label">Type</ion-label>
         <ion-select [(ngModel)]="category">
           <ion-select-option value="gastos">Occasional</ion-select-option>
           <ion-select-option value="gastos_fijos">Monthly</ion-select-option>
@@ -47,8 +48,16 @@
       </ion-item>
     </ion-list>
   
-    <ion-button expand="full" class="continue-button-2">
-      Guardar
+    <ion-button expand="block" color="light" style="--background: #060606d6;
+    --color: #ffffff;
+    font-weight: bold;
+    border-radius: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: 0px 10px 8px rgba(9, 9, 9, 0.493);" >
+    Guardar
     </ion-button>
-  </ion-content>
+    
+    
+</ion-content>
   
