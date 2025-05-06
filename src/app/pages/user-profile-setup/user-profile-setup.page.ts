@@ -40,7 +40,7 @@ export class UserProfileSetupPage {
       await setDoc(doc(db, 'users', user.uid), userProfile);
       console.log('Profile saved successfully:', userProfile);
       alert('Profile saved successfully!');
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/tabs/tab1']);
     } catch (error) {
       console.error('Error saving profile:', error);
       alert('Failed to save profile');

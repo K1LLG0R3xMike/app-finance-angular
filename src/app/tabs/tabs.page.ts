@@ -15,4 +15,13 @@ export class TabsPage {
 
   constructor() {}
 
+
+  onTabChange() {
+    // Desenfoca cualquier elemento antes de que la pestaña cambie
+    const activeEl = document.activeElement as HTMLElement;
+    if (activeEl) {
+      activeEl.blur();
+    }
+  }
+  
 }
